@@ -1,7 +1,15 @@
 from imp import source_from_cache
 import json
 import requests
-import pymongo
+import firebase_admin
+from firebase_admin import credentials
+from firebase_admin import firestore
+
+cred = credentials.Certificate('/home/i3fos109e/vibrant-period-353301-1fd1b4796f74.json')
+firebase_admin.initialize_app(cred)
+
+db = firestore.client()
+collection_ref = db.collection("onedata")
 
 s01 = 'https://opendata.cwb.gov.tw/api/v1/rest/datastore/F-D0047-001?Authorization=CWB-025D81F9-BD99-4E50-BA59-5D9878B4BEE9'
 s02 = 'https://opendata.cwb.gov.tw/api/v1/rest/datastore/F-D0047-005?Authorization=CWB-025D81F9-BD99-4E50-BA59-5D9878B4BEE9'
@@ -35,5 +43,5 @@ collection = db["onedata"]
 for i in range(len(source)):
     response = requests.get(source[i])
     data = json.loads(response.text)
-    collection.insert_one(data)
+    collection_ref.add(data)
 
