@@ -4,6 +4,8 @@ WORKDIR /
 
 ADD . /
 
+EXPOSE 8080
+
 LABEL version = "1" Copyright = "2022" owner = "zoe"
 
 RUN pip3 install -r requirements.txt
