@@ -1,9 +1,10 @@
 import json
 import requests
+import firebase_admin
 from firebase_admin import credentials
 from firebase_admin import firestore
 
-cred = credentials.Certificate(${{secrets.CERTIFICATE}})
+cred = credentials.Certificate('/home/i3fos109e/vibrant-period-353301-1fd1b4796f74.json')
 firebase_admin.initialize_app(cred)
 
 db = firestore.client()
@@ -35,11 +36,11 @@ s22 ='http://dataservice.accuweather.com/forecasts/v1/hourly/1hour/3369309?apike
 
 source = [s01,s02,s03,s04,s05,s06,s07,s08,s09,s10,s11,s12,s13,s14,s15,s16,s17,s18,s19,s20,s21,s22]
 
-data ={}
 for i in range(len(source)):
     response = requests.get(source[i])
     data = json.loads(response.text)
     # print(data)
-    collection_ref.add(data)
+    for j in range(len(data)):
+        collection_ref.add(data[j])
 
 

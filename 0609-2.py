@@ -5,7 +5,7 @@ import firebase_admin
 from firebase_admin import credentials
 from firebase_admin import firestore
 
-cred = credentials.Certificate(${{secrets.CERTIFICATE}})
+cred = credentials.Certificate('/home/i3fos109e/vibrant-period-353301-1fd1b4796f74.json')
 firebase_admin.initialize_app(cred)
 
 db = firestore.client()
