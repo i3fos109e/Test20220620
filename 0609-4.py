@@ -2,7 +2,6 @@ import json
 import requests
 import pymongo
 
-
 s01 ='http://dataservice.accuweather.com/forecasts/v1/hourly/1hour/315078?apikey=IOGX2VpQDutEmY8RvEd5jR3YqPrGf2Wx&language=zh-tw'
 s02 ='http://dataservice.accuweather.com/forecasts/v1/hourly/1hour/251539?apikey=IOGX2VpQDutEmY8RvEd5jR3YqPrGf2Wx&language=zh-tw'
 s03 ='http://dataservice.accuweather.com/forecasts/v1/hourly/1hour/312605?apikey=IOGX2VpQDutEmY8RvEd5jR3YqPrGf2Wx&language=zh-tw'
@@ -38,5 +37,9 @@ for i in range(len(source)):
     response = requests.get(source[i])
     data = json.loads(response.text)
     # print(data)
-    collection.insert_many(data)
+    try:
+        collection.insert_many(data)
+    except:
+        collection.insert_one(data)
+
 

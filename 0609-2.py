@@ -32,8 +32,8 @@ myclient = pymongo.MongoClient("mongodb://localhost:27017/")
 db = myclient["weather"]
 collection = db["onedata"]
 
-# for i in range(len(source)):
-#     response = requests.get(source[i])
-#     data = json.loads(response.text)
-#     collection.insert_one(data)
+for i in range(len(source)):
+    response = requests.get(source[i])
+    data = json.loads(response.text)
+    collection.insert_one(data)
 
