@@ -33,10 +33,7 @@ s20 ='http://dataservice.accuweather.com/forecasts/v1/hourly/1hour/3369307?apike
 s21 ='http://dataservice.accuweather.com/forecasts/v1/hourly/1hour/2332525?apikey=IOGX2VpQDutEmY8RvEd5jR3YqPrGf2Wx&language=zh-tw'
 s22 ='http://dataservice.accuweather.com/forecasts/v1/hourly/1hour/3369309?apikey=IOGX2VpQDutEmY8RvEd5jR3YqPrGf2Wx&language=zh-tw'
 
-
-source = []
-for s in range(1,22):
-    sourse.append("s"+s)
+source = [s1,s2,s3,s4,s5,s6,s7,s8,s9,s10,s11,s12,s13,s14,s15,s16,s17,s18,s19,s20,s21,s22]
 
 for i in range(len(source)):
     response = requests.get(source[i])

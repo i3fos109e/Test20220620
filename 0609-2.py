@@ -34,9 +34,7 @@ s20 = 'https://opendata.cwb.gov.tw/api/v1/rest/datastore/F-D0047-077?Authorizati
 s21 = 'https://opendata.cwb.gov.tw/api/v1/rest/datastore/F-D0047-081?Authorization=CWB-025D81F9-BD99-4E50-BA59-5D9878B4BEE9'
 s22 = 'https://opendata.cwb.gov.tw/api/v1/rest/datastore/F-D0047-085?Authorization=CWB-025D81F9-BD99-4E50-BA59-5D9878B4BEE9'
 
-source = []
-for i in range(1,22):
-    sourse.append("s"+i)
+source = [s1,s2,s3,s4,s5,s6,s7,s8,s9,s10,s11,s12,s13,s14,s15,s16,s17,s18,s19,s20,s21,s22]
 
 for i in range(len(source)):
     response = requests.get(source[i])
