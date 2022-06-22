@@ -10,15 +10,15 @@ firebase_admin.initialize_app(cred)
 db = firestore.client()
 collection_ref = db.collection("twodata")
 
-s01 ='http://dataservice.accuweather.com/forecasts/v1/hourly/1hour/315078?apikey=IOGX2VpQDutEmY8RvEd5jR3YqPrGf2Wx&language=zh-tw'
-s02 ='http://dataservice.accuweather.com/forecasts/v1/hourly/1hour/251539?apikey=IOGX2VpQDutEmY8RvEd5jR3YqPrGf2Wx&language=zh-tw'
-s03 ='http://dataservice.accuweather.com/forecasts/v1/hourly/1hour/312605?apikey=IOGX2VpQDutEmY8RvEd5jR3YqPrGf2Wx&language=zh-tw'
-s04 ='http://dataservice.accuweather.com/forecasts/v1/hourly/1hour/3369297?apikey=IOGX2VpQDutEmY8RvEd5jR3YqPrGf2Wx&language=zh-tw'
-s05 ='http://dataservice.accuweather.com/forecasts/v1/hourly/1hour/313567?apikey=IOGX2VpQDutEmY8RvEd5jR3YqPrGf2Wx&language=zh-tw'
-s06 ='http://dataservice.accuweather.com/forecasts/v1/hourly/1hour/3369298?apikey=IOGX2VpQDutEmY8RvEd5jR3YqPrGf2Wx&language=zh-tw'
-s07 ='http://dataservice.accuweather.com/forecasts/v1/hourly/1hour/3369299?apikey=IOGX2VpQDutEmY8RvEd5jR3YqPrGf2Wx&language=zh-tw'
-s08 ='http://dataservice.accuweather.com/forecasts/v1/hourly/1hour/315040?apikey=IOGX2VpQDutEmY8RvEd5jR3YqPrGf2Wx&language=zh-tw'
-s09 ='http://dataservice.accuweather.com/forecasts/v1/hourly/1hour/3369301?apikey=IOGX2VpQDutEmY8RvEd5jR3YqPrGf2Wx&language=zh-tw'
+s1 ='http://dataservice.accuweather.com/forecasts/v1/hourly/1hour/315078?apikey=IOGX2VpQDutEmY8RvEd5jR3YqPrGf2Wx&language=zh-tw'
+s2 ='http://dataservice.accuweather.com/forecasts/v1/hourly/1hour/251539?apikey=IOGX2VpQDutEmY8RvEd5jR3YqPrGf2Wx&language=zh-tw'
+s3 ='http://dataservice.accuweather.com/forecasts/v1/hourly/1hour/312605?apikey=IOGX2VpQDutEmY8RvEd5jR3YqPrGf2Wx&language=zh-tw'
+s4 ='http://dataservice.accuweather.com/forecasts/v1/hourly/1hour/3369297?apikey=IOGX2VpQDutEmY8RvEd5jR3YqPrGf2Wx&language=zh-tw'
+s5 ='http://dataservice.accuweather.com/forecasts/v1/hourly/1hour/313567?apikey=IOGX2VpQDutEmY8RvEd5jR3YqPrGf2Wx&language=zh-tw'
+s6 ='http://dataservice.accuweather.com/forecasts/v1/hourly/1hour/3369298?apikey=IOGX2VpQDutEmY8RvEd5jR3YqPrGf2Wx&language=zh-tw'
+s7 ='http://dataservice.accuweather.com/forecasts/v1/hourly/1hour/3369299?apikey=IOGX2VpQDutEmY8RvEd5jR3YqPrGf2Wx&language=zh-tw'
+s8 ='http://dataservice.accuweather.com/forecasts/v1/hourly/1hour/315040?apikey=IOGX2VpQDutEmY8RvEd5jR3YqPrGf2Wx&language=zh-tw'
+s9 ='http://dataservice.accuweather.com/forecasts/v1/hourly/1hour/3369301?apikey=IOGX2VpQDutEmY8RvEd5jR3YqPrGf2Wx&language=zh-tw'
 s10 ='http://dataservice.accuweather.com/forecasts/v1/hourly/1hour/3369300?apikey=IOGX2VpQDutEmY8RvEd5jR3YqPrGf2Wx&language=zh-tw'
 s11 ='http://dataservice.accuweather.com/forecasts/v1/hourly/1hour/3369302?apikey=IOGX2VpQDutEmY8RvEd5jR3YqPrGf2Wx&language=zh-tw'
 s12 ='http://dataservice.accuweather.com/forecasts/v1/hourly/1hour/312591?apikey=IOGX2VpQDutEmY8RvEd5jR3YqPrGf2Wx&language=zh-tw'
@@ -34,7 +34,9 @@ s21 ='http://dataservice.accuweather.com/forecasts/v1/hourly/1hour/2332525?apike
 s22 ='http://dataservice.accuweather.com/forecasts/v1/hourly/1hour/3369309?apikey=IOGX2VpQDutEmY8RvEd5jR3YqPrGf2Wx&language=zh-tw'
 
 
-source = [s01,s02,s03,s04,s05,s06,s07,s08,s09,s10,s11,s12,s13,s14,s15,s16,s17,s18,s19,s20,s21,s22]
+source = []
+for s in range(1,22):
+    sourse.append("s"+s)
 
 for i in range(len(source)):
     response = requests.get(source[i])
