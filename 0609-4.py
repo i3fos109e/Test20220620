@@ -1,6 +1,13 @@
 import json
 import requests
-import pymongo
+from firebase_admin import credentials
+from firebase_admin import firestore
+
+cred = credentials.Certificate('/home/i3fos109e/vibrant-period-353301-1fd1b4796f74.json')
+firebase_admin.initialize_app(cred)
+
+db = firestore.client()
+collection_ref = db.collection("twodata")
 
 s01 ='http://dataservice.accuweather.com/forecasts/v1/hourly/1hour/315078?apikey=IOGX2VpQDutEmY8RvEd5jR3YqPrGf2Wx&language=zh-tw'
 s02 ='http://dataservice.accuweather.com/forecasts/v1/hourly/1hour/251539?apikey=IOGX2VpQDutEmY8RvEd5jR3YqPrGf2Wx&language=zh-tw'
@@ -37,9 +44,6 @@ for i in range(len(source)):
     response = requests.get(source[i])
     data = json.loads(response.text)
     # print(data)
-    try:
-        collection.insert_many(data)
-    except:
-        collection.insert_one(data)
+    collection_ref.add(data)
 
 
